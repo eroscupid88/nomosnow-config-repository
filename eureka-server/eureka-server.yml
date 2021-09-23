@@ -18,4 +18,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: *
+    enabled-by-default: true

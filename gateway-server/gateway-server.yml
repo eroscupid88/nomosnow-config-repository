@@ -1,6 +1,13 @@
 spring:
   application:
     name: gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    loadbalancer.ribbon.enabled: false
 
 server:
   port: 7072
@@ -14,13 +21,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:7070/eureka/
 
-# cloud:
-#     gateway:
-#       discovery:
-#         locator:
-#           enabled: true
-#           lower-case-service-id: true
-#     loadbalancer.ribbon.enabled: false
 management:
   endpoints:
     web:

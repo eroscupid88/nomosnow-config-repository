@@ -7,6 +7,20 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      routes:
+        - id: sport-organization-service
+          uri: lb://SPORT-ORGANIZATION-SERVICE
+          predicates:
+            - Path=/organization/**
+          filters:
+            - RewritePath=/organization/(?<path>.*), /$\{path}
+        - id: sport-event-service
+          uri: lb://SPORT-EVENT-SERVICE
+          predicates:
+            - Path=/event/**
+          filters:
+            - RewritePath=/event/(?<path>.*), /$\{path}
+        # use service discovery as route
     loadbalancer.ribbon.enabled: false
 
 server:

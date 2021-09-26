@@ -6,7 +6,7 @@ server:
 eureka:
   renewalPercentThreshold: 0.85
   instance:
-    hostname: localhost
+    hostname: eurekaserver
   client:
     registerWithEureka: false
     fetchRegistry: false

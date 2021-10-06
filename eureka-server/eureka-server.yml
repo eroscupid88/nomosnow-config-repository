@@ -1,11 +1,11 @@
 spring:
   application:
-    name: eurekaserver
+    name: eureka-server
 
 eureka:
   renewalPercentThreshold: 0.85
   instance:
-    hostname: eurekaserver
+    hostname: eureka-server
   client:
     registerWithEureka: false
     fetchRegistry: false

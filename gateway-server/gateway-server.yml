@@ -23,6 +23,9 @@ spring:
             - RewritePath=/event/(?<path>.*), /$\{path}
       # use service discovery as route
     loadbalancer.ribbon.enabled: false
+  sleuth:
+    sampler:
+      percentage: 1
 
 server:
   port: 7072

@@ -1,6 +1,11 @@
 spring:
   application:
     name: gateway-server
+  zipkin:
+    baseUrl: http://zipkin:9411
+  sleuth:
+    sampler:
+      percentage: 1
   cloud:
     gateway:
       discovery:
@@ -23,9 +28,6 @@ spring:
             - RewritePath=/event/(?<path>.*), /$\{path}
       # use service discovery as route
     loadbalancer.ribbon.enabled: false
-  sleuth:
-    sampler:
-      percentage: 1
 
 server:
   port: 7072

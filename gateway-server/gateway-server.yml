@@ -15,11 +15,11 @@ spring:
       #   lower-case-service-id: true
       routes:
         - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/cmpt353/**
-          filters:
-            - RewritePath=/cmpt353/(?<path>.*), /$\{path}
+          uri: http://localhost:8080
+          # predicates:
+          #   - Path=/cmpt353/**
+          # filters:
+          #   - RewritePath=/cmpt353/(?<path>.*), /$\{path}
         # - id: sport-organization-service
         #   uri: lb://SPORT-ORGANIZATION-SERVICE
         #   predicates:

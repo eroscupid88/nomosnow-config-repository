@@ -13,13 +13,14 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-      # routes:
-      #   - id: user-service
-      #     uri: http://localhost:8080
-      #     predicates:
-      #       - Path=/cmpt353/**
-      #     filters:
-      #       - RewritePath=/cmpt353/(?<path>.*), /$\{path}
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Method=GET,POST,DELETE
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+            - RewritePath=/user-service/(?<path>.*), /$\{path}
       # - id: sport-organization-service
       #   uri: lb://SPORT-ORGANIZATION-SERVICE
       #   predicates:

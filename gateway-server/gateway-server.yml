@@ -17,10 +17,9 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Method=GET,POST,DELETE
+            - Path=/service/**
           filters:
-            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-            - RewritePath=/user-service/(?<path>.*), /$\{path}
+            - RewritePath=/service/(?<path>.*), /$\{path}
       # - id: sport-organization-service
       #   uri: lb://SPORT-ORGANIZATION-SERVICE
       #   predicates:

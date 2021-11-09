@@ -16,8 +16,8 @@ spring:
       routes:
         - id: user-service
           uri: http://localhost:8080
-          # predicates:
-          #   - Path=/cmpt353/**
+          predicates:
+            - Path=/cmpt353/**
           # filters:
           #   - RewritePath=/cmpt353/(?<path>.*), /$\{path}
         # - id: sport-organization-service

@@ -18,8 +18,8 @@ spring:
           uri: http://localhost:8080
           predicates:
             - Path=/cmpt353/**
-          # filters:
-          #   - RewritePath=/cmpt353/(?<path>.*), /$\{path}
+          filters:
+            - RewritePath=/cmpt353/(?<path>.*), /$\{path}
         # - id: sport-organization-service
         #   uri: lb://SPORT-ORGANIZATION-SERVICE
         #   predicates:

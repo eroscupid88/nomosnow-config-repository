@@ -8,11 +8,11 @@ spring:
       percentage: 1
   cloud:
     gateway:
-      discovery:
-        # this enable eureka path
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      # discovery:
+      #   # this enable eureka path
+      #   locator:
+      #     enabled: true
+      #     lower-case-service-id: true
       routes:
         - id: user-service
           uri: lb://USER-SERVICE

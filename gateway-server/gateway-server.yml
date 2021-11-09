@@ -15,7 +15,7 @@ spring:
       #     lower-case-service-id: true
       routes:
         - id: user-service
-          uri: lb://USER-SERVICE
+          uri: http://localhost:8080/
           predicates:
             - Path=/service/**
           filters:

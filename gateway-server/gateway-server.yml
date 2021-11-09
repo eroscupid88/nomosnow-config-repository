@@ -14,18 +14,24 @@ spring:
       #   enabled: true
       #   lower-case-service-id: true
       routes:
-        - id: sport-organization-service
-          uri: lb://SPORT-ORGANIZATION-SERVICE
+        - id: user-service
+          uri: lb://USER-SERVICE
           predicates:
-            - Path=/organization/**
+            - Path=/cmpt353/**
           filters:
-            - RewritePath=/organization/(?<path>.*), /$\{path}
-        - id: sport-event-service
-          uri: lb://SPORT-EVENT-SERVICE
-          predicates:
-            - Path=/event/**
-          filters:
-            - RewritePath=/event/(?<path>.*), /$\{path}
+            - RewritePath=/cmpt353/(?<path>.*), /$\{path}
+        # - id: sport-organization-service
+        #   uri: lb://SPORT-ORGANIZATION-SERVICE
+        #   predicates:
+        #     - Path=/organization/**
+        #   filters:
+        #     - RewritePath=/organization/(?<path>.*), /$\{path}
+        # - id: sport-event-service
+        #   uri: lb://SPORT-EVENT-SERVICE
+        #   predicates:
+        #     - Path=/event/**
+        #   filters:
+        #     - RewritePath=/event/(?<path>.*), /$\{path}
       # use service discovery as route
     loadbalancer.ribbon.enabled: false
 

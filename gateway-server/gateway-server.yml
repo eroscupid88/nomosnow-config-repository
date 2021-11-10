@@ -8,30 +8,24 @@ spring:
       percentage: 1
   cloud:
     gateway:
-      discovery:
-        # this enable eureka path
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: user-service
-          uri: http://localhost:8080/
-          predicates:
-            - Path=/service/**
-          filters:
-            - RewritePath=/service/(?<path>.*), /$\{path}
-      # - id: sport-organization-service
-      #   uri: lb://SPORT-ORGANIZATION-SERVICE
-      #   predicates:
-      #     - Path=/organization/**
-      #   filters:
-      #     - RewritePath=/organization/(?<path>.*), /$\{path}
-      # - id: sport-event-service
-      #   uri: lb://SPORT-EVENT-SERVICE
-      #   predicates:
-      #     - Path=/event/**
-      #   filters:
-      #     - RewritePath=/event/(?<path>.*), /$\{path}
+      # discovery:
+      #   # this enable eureka path
+      #   locator:
+      #     enabled: true
+      #     lower-case-service-id: true
+
+      - id: sport-organization-service
+        uri: lb://SPORT-ORGANIZATION-SERVICE
+        predicates:
+          - Path=/organization/**
+        filters:
+          - RewritePath=/organization/(?<path>.*), /$\{path}
+      - id: sport-event-service
+        uri: lb://SPORT-EVENT-SERVICE
+        predicates:
+          - Path=/event/**
+        filters:
+          - RewritePath=/event/(?<path>.*), /$\{path}
       # use service discovery as route
     loadbalancer.ribbon.enabled: false
 
